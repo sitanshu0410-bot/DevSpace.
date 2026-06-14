@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+class Piglatin {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a word: ");
+        String word = sc.next().toUpperCase();
+
+        int pos = 0;
+
+        for(int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+
+            if(ch == 'A' || ch == 'E' || ch == 'I' ||
+               ch == 'O' || ch == 'U') {
+                pos = i;
+                break;
+            }
+        }
+
+        String pig = word.substring(pos) +
+                     word.substring(0, pos) +
+                     "AY";
+
+        System.out.println("Piglatin Form: " + pig);
+
+        sc.close();
+    }
+}
